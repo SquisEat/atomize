@@ -5,7 +5,7 @@ import Div from "../div/Div";
 /**
  * Duration for the transition
  */
-const duration = 300;
+const duration = 100;
 
 /**
  * Default Style for Backlayer
@@ -29,10 +29,11 @@ const backLayerTransitionStyles = {
  * Default Style for ModalContent
  */
 const defaultModalContentStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
+  transition: `opacity 0ms ease-in-out`,
   opacity: 0,
   overflowY: "auto",
-  overflowX: "hidden"
+  overflowX: "hidden",
+  backdropFilter: "blur(5px)",
 };
 
 /**
@@ -85,7 +86,7 @@ class Modal extends Component {
     return (
       <Transition
         in={isOpen}
-        timeout={duration}
+        timeout={0}
         onEntering={this.disableBodyScroll}
         onExiting={this.enableBodyScroll}
         unmountOnExit
